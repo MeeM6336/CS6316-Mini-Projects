@@ -13,7 +13,7 @@ plot(
 
 # Get point estimate of population correlation
 r <- cor(data$act, data$gpa)
-cat(sprintf("Correlation estimator r: %.4f\n", r))
+cat(sprintf("Correlation estimator r for true correlator p: %.4f\n", r))
 
 # Set up bootstraps
 set.seed(0) # for reproducibility
@@ -40,4 +40,4 @@ boot_ci <- quantile(boot_corrs, probs = c(alpha / 2, 1 - alpha / 2))
 # Print results
 cat(sprintf("Bootstrap Bias of r: %.4f\n", boot_bias))
 cat(sprintf("Bootstrap SE of r: %.4f\n", boot_se))
-cat(sprintf("Bootstrap 95%% CI of r: [%.4f, %.4f]\n", boot_ci[1], boot_ci[2]))
+cat(sprintf("Bootstrap 95%% CI of p: [%.4f, %.4f]\n", boot_ci[1], boot_ci[2]))
